@@ -1,0 +1,15 @@
+## Compiled JavaScript and other files
+lib/
+build/
+
+# Typescript v1 declaration files
+typings/
+
+node_modules/
+
+# config
+.env
+config/*.json
+
+# macOS files
+.DS_Store
