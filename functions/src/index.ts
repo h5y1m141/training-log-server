@@ -112,13 +112,21 @@ const resolvers = {
     city: (_: any, { name, country }: any) => {
       const fireStore = admin.firestore()
       const citiesRef = fireStore.collection('cities')
-      citiesRef.doc('gIVUqewodi2AEccHj5Nd').set({
-        name: name,
-        state: 'CA',
-        country: country,
-        capital: false,
-        population: 860000,
-      })
+      citiesRef
+        .doc('gIVUqewodi2AEccHj5Nd')
+        .set({
+          name: name,
+          state: 'CA',
+          country: country,
+          capital: false,
+          population: 860000,
+        })
+        .then(() => {
+          console.log('done')
+        })
+        .catch(error => {
+          console.error('Error writing document: ', error)
+        })
 
       return 'ok'
     },
